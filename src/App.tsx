@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import {Routes,Route,BrowserRouter as Router} from 'react-router-dom';
+import { HomePage } from './pages/HomePage';
+import { MenuPage } from './pages/MenuPage';
+import { CategoryPage } from './pages/CategoryPage';
+import { WelcomeMessagePage } from './pages/WelcomeMessagePage';
+import { GuildPrefixPage } from './pages/GuildPrefixPage';
+import { GuildContext } from './utils/contexts/GuildContext';
+import { AppBar } from './components/AppBar';
 
 function App() {
+  const [guildId,setGuildId] = useState('111');
+  const updateGuildId = (id:string)=>setGuildId(id);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+   <GuildContext.Provider value={{guildId:guildId,updateGuildId}}>
+    <Routes>
+      <Route path="/categories" element={<AppBar/>}/>
+    </Routes>
+      <Routes>
+        <Route path="/menu" element={<MenuPage/>} />
+        <Route path="/" element={<HomePage/>} />
+        <Route path="/categories" element={<CategoryPage/>} />
+        <Route path="/guild/update-prefix" element={<GuildPrefixPage/>} />
+        <Route path="/guild/update-message" element={<WelcomeMessagePage/>} />
+      </Routes>
+   </GuildContext.Provider>
   );
 }
 
