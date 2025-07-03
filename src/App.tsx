@@ -14,14 +14,14 @@ function App() {
   return (
    <GuildContext.Provider value={{guildId:guildId,updateGuildId}}>
     <Routes>
-      <Route path="/categories" element={<AppBar/>}/>
+      <Route path="/dashboard/*" element={<AppBar/>}/>
     </Routes>
       <Routes>
         <Route path="/menu" element={<MenuPage/>} />
         <Route path="/" element={<HomePage/>} />
-        <Route path="/categories" element={<CategoryPage/>} />
-        <Route path="/guild/update-prefix" element={<GuildPrefixPage/>} />
-        <Route path="/guild/update-message" element={<WelcomeMessagePage/>} />
+        <Route path="/dashboard/categories" element={<CategoryPage/>} />
+        <Route path="/dashboard/prefix" element={<GuildPrefixPage/>} />
+        <Route path="/dashboard/message" element={<WelcomeMessagePage/>} />
       </Routes>
    </GuildContext.Provider>
   );

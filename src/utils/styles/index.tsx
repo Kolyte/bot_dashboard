@@ -45,4 +45,8 @@ padding:15px 35px;
 box-sizing:border-box;
 border-bottom:1px solid #c9c9c921;
 `;
+export const Title = styled.p`
+font-size:24px;
+
+`
 export{};
