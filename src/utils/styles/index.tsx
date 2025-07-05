@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const MainButton = styled.div`
   display: flex;
@@ -46,7 +46,45 @@ box-sizing:border-box;
 border-bottom:1px solid #c9c9c921;
 `;
 export const Title = styled.p`
-font-size:24px;
+font-size:20px;
 
+`;
+
+export const InputField = styled.input`
+padding:14px 16px;
+font-size:16px;
+background-color:#252525;
+border-radius:5px;
+border:1px solid #393939;
+color: white;
+font-family:'DM Sans';
+width:100%;
+:focus{
+  outline: 1px solid #fff;
+}
+`
+type ButtonProps={
+variant:'primary'|'secondary';
+};
+export const Button = styled.button<ButtonProps>`
+padding:12px 20px;
+outline:none;
+border:none;
+font-size:14px;
+color:#fff;
+font-family:'DM Sans';
+border-radius:5px;
+${({variant})=>
+variant==='primary'&&
+css`
+background-color:#0047AB
+
+`}
+${({variant})=>
+variant==='secondary'&&
+css`
+background-color:#3d3d3d
+
+`}
 `
 export{};
