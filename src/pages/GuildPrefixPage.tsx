@@ -1,4 +1,4 @@
-import { Button, Container, InputField, Title } from "../utils/styles";
+import { Button, Container, Flex, InputField, Title } from "../utils/styles";
 
 export const GuildPrefixPage = () =>
  <div style={{padding:'25px'}}>
@@ -7,10 +7,10 @@ export const GuildPrefixPage = () =>
         <form>
             <div><label htmlFor="prefix">Current prefix</label></div>
             <InputField style={{margin:'10px 0px'}}/>
-            <div>
-                <Button variant="secondary" type='button'>Reset</Button>
+            <Flex justifyContent="flex-end">
+                <Button variant="secondary" style={{margin:'0 10px'}} type='button'>Reset</Button>
                 <Button variant="primary" type='submit'>Save</Button>
-            </div>
+            </Flex>
             
         </form>
     </Container>

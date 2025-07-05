@@ -53,6 +53,7 @@ font-size:20px;
 export const InputField = styled.input`
 padding:14px 16px;
 font-size:16px;
+box-sizing:border-box;
 background-color:#252525;
 border-radius:5px;
 border:1px solid #393939;
@@ -87,4 +88,17 @@ background-color:#3d3d3d
 
 `}
 `
+type FlexProps = Partial<{
+  alignItems: string;
+  justifyContent: string;
+  flexDirection: string;
+}>;
+
+export const Flex = styled.div<FlexProps>`
+  display: flex;
+  align-items: ${({ alignItems }) => alignItems};
+  justify-content: ${({ justifyContent }) => justifyContent};
+  flex-direction: ${({ flexDirection }) => flexDirection};
+`;
+
 export{};
