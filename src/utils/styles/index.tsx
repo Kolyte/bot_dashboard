@@ -100,5 +100,17 @@ export const Flex = styled.div<FlexProps>`
   justify-content: ${({ justifyContent }) => justifyContent};
   flex-direction: ${({ flexDirection }) => flexDirection};
 `;
+export const TextButton = styled(MainButton)`
+padding:20px 30px;
+background-color:#272727;
+width:100%;
+margin:4px;
 
+
+`;
+export const Grid = styled.div`
+display:grid;
+grid-template-columns:1fr 1fr 1fr 1fr;
+column-gap:20px;
+`;
 export{};
