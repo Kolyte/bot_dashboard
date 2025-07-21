@@ -4,7 +4,7 @@ export const WelcomeMessagePage = () =>{return(
 <PageSet>
 
     <Container>
-        <Title style={{justifyContent:'center'}}>
+        <Title style={{ display:"flex",justifyContent:'flex-start'}}>
             Update Welcome Message
         </Title>
         <section style={{marginTop:'40px'}}>

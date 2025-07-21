@@ -106,6 +106,8 @@ padding:50px;
 
 `
 export const Select = styled.select`
+display: flex;
+justify-content:center;
 padding:10px;
 margin:10px 0;
 width:100%;
@@ -114,6 +116,9 @@ font-size:16px;
 color:white;
 border-radius:5px;
 border-color:#3f3f3f;
+&:focus{
+outline:1px solid #ffffff5a;
+}
 &>option{
 background-color:#292929;
 }
