@@ -3,7 +3,7 @@ import { mockGuilds } from "../utils/_mocks_/guild";
 import { useContext } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
 import { GuildMenuItem } from "../components/GuildMenuItem";
-import { Container } from "../utils/styles";
+import { Container, PageSet } from "../utils/styles";
 
 export const MenuPage = ()=>{
     const navigate = useNavigate();
@@ -13,7 +13,7 @@ export const MenuPage = ()=>{
         navigate("/dashboard/categories")
     }
 return(
-    <div style={{padding:'50px 0'}}>
+  <PageSet>
        
     {/* <ul>
          {mockGuilds.map((guild)=>(<li onClick={()=>{
@@ -33,6 +33,6 @@ return(
     </div>
     </Container>
 
-</div>
+</PageSet>
 );
 };

@@ -70,6 +70,7 @@ variant:'primary'|'secondary';
 export const Button = styled.button<ButtonProps>`
 padding:12px 20px;
 outline:none;
+cursor:pointer;
 border:none;
 font-size:14px;
 color:#fff;
@@ -100,5 +101,37 @@ export const Flex = styled.div<FlexProps>`
   justify-content: ${({ justifyContent }) => justifyContent};
   flex-direction: ${({ flexDirection }) => flexDirection};
 `;
+export const PageSet= styled.div`
+padding:50px;
 
+`
+export const Select = styled.select`
+padding:10px;
+margin:10px 0;
+width:100%;
+background-color:inherit;
+font-size:16px;
+color:white;
+border-radius:5px;
+border-color:#3f3f3f;
+&>option{
+background-color:#292929;
+}
+`
+export const TextArea = styled.textarea`
+padding:14px 16px;
+box-sizing:border-box;
+font-size:16px;
+margin:10px 0;
+width:100%;
+border:1px solid #3f3f3f;
+background-color:#272727;
+color:white;
+border-radius:5px;
+outline:none;
+resize:none;
+&:focus{
+outline:1px solid #ffffff5a;
+}
+`
 export{};

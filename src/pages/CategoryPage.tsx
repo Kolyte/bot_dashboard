@@ -1,10 +1,10 @@
 import { useContext } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
-import { Container, Title } from "../utils/styles";
+import { Container, PageSet, Title } from "../utils/styles";
 
 export const CategoryPage = () => {
     const {guildId,updateGuildId} = useContext(GuildContext);
-    return <div style={{padding:'50px 0'}}>
+    return <PageSet>
         <Container>
             <div>
                 <div>
@@ -14,6 +14,6 @@ export const CategoryPage = () => {
                 </div>
             </div>
         </Container>
-        </div>
+        </PageSet>
 };
 
