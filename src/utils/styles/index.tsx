@@ -60,8 +60,8 @@ border:1px solid #393939;
 color: white;
 font-family:'DM Sans';
 width:100%;
-:focus{
-  outline: 1px solid #fff;
+&:focus{
+  outline: 1px solid #ffffff5a;
 }
 `
 type ButtonProps={
@@ -106,9 +106,10 @@ padding:50px;
 
 `
 export const Select = styled.select`
-display: flex;
-justify-content:center;
 padding:10px;
+-webkit-appearance: none;
+-moz-appearance: none;      
+appearance: none;        
 margin:10px 0;
 width:100%;
 background-color:inherit;
@@ -139,4 +140,8 @@ resize:none;
 outline:1px solid #ffffff5a;
 }
 `
+
+
+
+
 export{};
