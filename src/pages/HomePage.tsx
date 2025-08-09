@@ -3,10 +3,13 @@ import { MainButton,HomePageStyle} from '../utils/styles';
 const FaDiscordWithProperType = FaDiscord as React.ElementType;
 const FaQuestionCircleWithProperType = FaQuestionCircle as React.ElementType;
 export const HomePage:React.FC = () => {
+const redirect = ()=>{
+  window.location.href = 'http://localhost:3001/api/auth/login';
+}
 return(<HomePageStyle>
 <div></div>
 <div>
-<MainButton>
+<MainButton onClick={redirect}>
       <div style={{ marginRight: '10px' }}>
         <FaDiscordWithProperType size={50} color="5865F2" />
       </div>
