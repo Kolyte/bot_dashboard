@@ -60,8 +60,8 @@ border:1px solid #393939;
 color: white;
 font-family:'DM Sans';
 width:100%;
-:focus{
-  outline: 1px solid #fff;
+&:focus{
+  outline: 1px solid #ffffff5a;
 }
 `
 type ButtonProps={
@@ -107,6 +107,9 @@ padding:50px;
 `
 export const Select = styled.select`
 padding:10px;
+-webkit-appearance: none;
+-moz-appearance: none;      
+appearance: none;        
 margin:10px 0;
 width:100%;
 background-color:inherit;
@@ -114,6 +117,9 @@ font-size:16px;
 color:white;
 border-radius:5px;
 border-color:#3f3f3f;
+&:focus{
+outline:1px solid #ffffff5a;
+}
 &>option{
 background-color:#292929;
 }
@@ -134,4 +140,8 @@ resize:none;
 outline:1px solid #ffffff5a;
 }
 `
+
+
+
+
 export{};
