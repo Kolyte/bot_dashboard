@@ -8,34 +8,18 @@ import { GuildPrefixPage } from './pages/GuildPrefixPage';
 import { GuildContext } from './utils/contexts/GuildContext';
 import { AppBar } from './components/AppBar';
 import { useFetchUser } from './utils/hooks/fetchUser';
+import { Spinner } from './utils/styles';
 
 function App() {
   const [guildId,setGuildId] = useState('111');
   const {user, loading, err} = useFetchUser();
 
   const updateGuildId = (id:string)=>setGuildId(id);
-  if(err){
-    return <div>Error: {err}</div>;
-  }
+  // if(err){
+  //   return <div>Error: {err.message || 'Something went wrong'}</div>;
+  // }
   if (loading) {
-    return (
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        alignItems: 'center', 
-        height: '100vh' 
-      }}>
-        <div style={{
-          border: '4px solid #f3f3f3',
-          borderTop: '4px solid #1160e9ff', 
-          borderRadius: '50%',
-          width: '50px',
-          height: '50px',
-          animation: 'spin 1s linear infinite'
-        }}>
-        </div>
-      </div>
-    );
+    return <Spinner />;
   }
 
   return (
@@ -53,6 +37,7 @@ function App() {
       </Routes></>:<>
       <Routes>
         <Route path="/" element={<HomePage/>} />
+        <Route path='*' element={<HomePage/>} />
       </Routes>
       </>}
    </GuildContext.Provider>

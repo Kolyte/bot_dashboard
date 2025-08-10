@@ -4,7 +4,7 @@ import { User } from "../types/UserType";
 
 export function useFetchUser() {
   const [user, setUser] = useState<User | null>(null);
-  const [err,setErr] = useState();
+  const [err,setErr] = useState<Error | null>(null);
   const [loading,setLoading] = useState<boolean>(false);
   useEffect(() => {
    setLoading(true);
@@ -13,7 +13,7 @@ export function useFetchUser() {
    }).catch((error) => {
       setErr(error);
    }).finally(() => {
-      setLoading(false);
+      setTimeout(()=>setLoading(false),800)
    });
   }, []);
 return { user, loading, err };
