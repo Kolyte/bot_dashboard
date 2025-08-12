@@ -10,9 +10,11 @@ import { AppBar } from './components/AppBar';
 import { useFetchUser } from './utils/hooks/fetchUser';
 import { Spinner } from './utils/styles';
 
+
 function App() {
   const [guildId,setGuildId] = useState('111');
   const {user, loading, err} = useFetchUser();
+
 
   const updateGuildId = (id:string)=>setGuildId(id);
   // if(err){

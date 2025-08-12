@@ -3,7 +3,8 @@ import { mockGuilds } from "../utils/_mocks_/guild";
 import { useContext } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
 import { GuildMenuItem } from "../components/GuildMenuItem";
-import { Container, PageSet } from "../utils/styles";
+import { Container, EmptyStateText, PageSet, Spinner } from "../utils/styles";
+import { useFetchGuilds } from "../utils/hooks/fetchGuilds";
 
 export const MenuPage = ()=>{
     const navigate = useNavigate();
@@ -12,9 +13,10 @@ export const MenuPage = ()=>{
         updateGuildId(guildId)
         navigate("/dashboard/categories")
     }
+    const {guilds, error,loadingGuilds} = useFetchGuilds();
 return(
   <PageSet>
-       
+
     {/* <ul>
          {mockGuilds.map((guild)=>(<li onClick={()=>{
             updateGuildId(guild.id)
@@ -24,19 +26,36 @@ return(
     </ul> */}
     
     <Container>
-    <div>
-        {mockGuilds.map((guild)=>
-        <div onClick={()=> handleClick(guild.id)}>
-            <GuildMenuItem guild={guild}/>
-        </div>
+        {loadingGuilds ? (
+            <Spinner />
+        ) : (
+            
+            <div>
+                {/* {mockGuilds.map((guild)=>
+                <div onClick={()=> handleClick(guild.id)}>
+                    <GuildMenuItem guild={guild}/>
+                </div>
+        )} */}
+
+
+        {guilds && guilds.length === 0 && (
+            <EmptyStateText>No guilds found</EmptyStateText>
         )}
+        {
+            guilds?.map((guild)=>
+            <div key={guild.id} onClick={()=> handleClick(guild.id)}>
+                <GuildMenuItem guild={guild}/>
+            </div>
+            )
+        }
+
     </div>
    
 
 
-    </Container>
+        )}</Container>
 
-</PageSet>
+    </PageSet>
 );
 };
 

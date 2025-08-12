@@ -25,8 +25,8 @@ export const GuildMenuPageStyle = styled.div`
 display:flex;
 justify-content:space-between;
 padding:8px;
-background-color:#252525;
-border-radius:5px;
+background-color:#242222;
+border-radius:10px;
 border:0.222px solid #ffffff2f;
 margin:8px;
 `;
@@ -105,6 +105,15 @@ export const PageSet= styled.div`
 padding:50px;
 
 `
+export const EmptyStateText = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 24px;
+    color: #666;
+    font-weight: 500;
+`;
 export const Select = styled.select`
 padding:10px;
 -webkit-appearance: none;
