@@ -10,8 +10,8 @@ export const GuildMenuItem = ({guild}:Props)=>{
 return(
     <GuildMenuPageStyle>
         <img src={func(guild)} alt={guild.name} width={50} height={50} style={{borderRadius:'20%'}}/>
-        <p>{guild.name}</p>
-        
+        <p style={{fontFamily:"'Roboto', sans-serif"}}>{guild.name}</p>
+
 
 
     </GuildMenuPageStyle>)

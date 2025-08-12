@@ -14,7 +14,12 @@ export const MenuPage = ()=>{
         navigate("/dashboard/categories")
     }
     const {guilds, error,loadingGuilds} = useFetchGuilds();
+    if(loadingGuilds){
+        return <Spinner/>
+    }
 return(
+
+    
   <PageSet>
 
     {/* <ul>
@@ -26,9 +31,17 @@ return(
     </ul> */}
     
     <Container>
-        {loadingGuilds ? (
-            <Spinner />
-        ) : (
+        {/* {loadingGuilds ? (
+            <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                height: '100vh',
+                width: '100%'
+            }}>
+                <Spinner />
+            </div>
+        ) : ( */}
             
             <div>
                 {/* {mockGuilds.map((guild)=>
@@ -53,7 +66,7 @@ return(
    
 
 
-        )}</Container>
+        </Container>
 
     </PageSet>
 );

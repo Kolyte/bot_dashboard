@@ -20,8 +20,8 @@ function App() {
   // if(err){
   //   return <div>Error: {err.message || 'Something went wrong'}</div>;
   // }
-  if (loading) {
-    return <Spinner />;
+  if(loading){
+    return <Spinner />
   }
 
   return (
