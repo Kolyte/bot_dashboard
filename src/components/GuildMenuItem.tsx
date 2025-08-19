@@ -1,20 +1,17 @@
+import { func } from '../utils/helpers';
 import {GuildMenuPageStyle} from '../utils/styles';
+import { PartialGuilds } from '../utils/types/UserType';
 
 type Props = {
-    guild:{
-        id:string;
-        name:string;
-        icon:string;
-
-    }
+    guild:PartialGuilds
 
 };
 export const GuildMenuItem = ({guild}:Props)=>{
 return(
     <GuildMenuPageStyle>
-        <img src={guild.icon} alt={guild.name} width={50} height={50} style={{borderRadius:'10%'}}/>
-        <p>{guild.name}</p>
-        
+        <img src={func(guild)} alt={guild.name} width={50} height={50} style={{borderRadius:'20%'}}/>
+        <p style={{fontFamily:"'Roboto', sans-serif"}}>{guild.name}</p>
+
 
 
     </GuildMenuPageStyle>)

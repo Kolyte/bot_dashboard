@@ -1,14 +1,21 @@
 import { useContext } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
-import { Container, Flex, TextButton, Title } from "../utils/styles";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-import { faGear } from '@fortawesome/free-solid-svg-icons'; 
-import { Grid } from "../utils/styles";
-import { Book, BookOpen, Inbox, Paperclip, Settings } from "react-feather";
+import { Container, Flex, Grid, PageSet, TextButton, Title } from "../utils/styles";
+import { BookOpen, Settings } from "react-feather";
+import { PartialGuilds } from "../utils/types/UserType";
+import { Navigate, useNavigate } from "react-router-dom";
+
+
+    
+
 export const CategoryPage = () => {
-    const {guildId,updateGuildId} = useContext(GuildContext);
-    return <div style={{padding:'50px 0'}}>
+    const navigate = useNavigate();
+    const {guild,updateGuild} = useContext(GuildContext);
+    const handleClick = (guild:PartialGuilds,route:string) =>{
+        updateGuild(guild)
+        navigate("/dashboard/"+route)
+    }
+    return guild ?(<PageSet>
         <Container>
             <div>
                 <Flex alignItems="center" justifyContent="space-between">
@@ -21,8 +28,8 @@ export const CategoryPage = () => {
                 
                 </Flex>
                 <Grid>
-                    <TextButton>Command Prefix</TextButton>
-                    <TextButton>Welcome Message</TextButton>
+                    <TextButton onClick={()=>handleClick(guild,"prefix")} >Command Prefix</TextButton>
+                    <TextButton onClick={()=>handleClick(guild,"message")} >Welcome Message</TextButton>
                 </Grid>
             </div>
             <div>
@@ -41,6 +48,6 @@ export const CategoryPage = () => {
                 </Grid>
             </div>
         </Container>
-        </div>
+        </PageSet>):(<Navigate to="/category"/>)
 };
 

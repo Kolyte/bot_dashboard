@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 
 export const MainButton = styled.div`
   display: flex;
@@ -25,10 +25,16 @@ export const GuildMenuPageStyle = styled.div`
 display:flex;
 justify-content:space-between;
 padding:8px;
-background-color:#252525;
-border-radius:5px;
+background-color:#242222;
+border-radius:10px;
 border:0.222px solid #ffffff2f;
 margin:8px;
+cursor: pointer;
+transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #1f1f1f; 
+  }
 `;
 export const Container = styled.div`
  width: 1200px;
@@ -60,8 +66,8 @@ border:1px solid #393939;
 color: white;
 font-family:'DM Sans';
 width:100%;
-:focus{
-  outline: 1px solid #fff;
+&:focus{
+  outline: 1px solid #ffffff5a;
 }
 `
 type ButtonProps={
@@ -70,6 +76,7 @@ variant:'primary'|'secondary';
 export const Button = styled.button<ButtonProps>`
 padding:12px 20px;
 outline:none;
+cursor:pointer;
 border:none;
 font-size:14px;
 color:#fff;
@@ -100,14 +107,119 @@ export const Flex = styled.div<FlexProps>`
   justify-content: ${({ justifyContent }) => justifyContent};
   flex-direction: ${({ flexDirection }) => flexDirection};
 `;
+
 export const TextButton = styled(MainButton)`
 padding:20px 30px;
+cursor:pointer;
 background-color:#272727;
 width:100%;
 margin:4px;
-
-
 `;
+export const PageSet= styled.div`
+padding:50px;
+
+`
+export const EmptyStateText = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-size: 24px;
+    color: #666;
+    font-weight: 500;
+`;
+export const Select = styled.select`
+padding:10px;
+-webkit-appearance: none;
+-moz-appearance: none;      
+appearance: none;        
+margin:10px 0;
+width:100%;
+background-color:inherit;
+font-size:16px;
+color:white;
+border-radius:5px;
+border-color:#3f3f3f;
+&:focus{
+outline:1px solid #ffffff5a;
+}
+&>option{
+background-color:#292929;
+}
+`
+export const SocialLink = styled.a`
+  text-decoration: none; 
+  color: #ffffff; 
+  background-color: #272727; 
+  padding: 10px 14px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #3f3f3f; 
+  }
+`;
+export const BottomBar = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #272727;
+  width: 100%;
+  height: 60px;
+  bottom: 0;
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  border: none;
+`;
+export const CenterItems = styled.div`
+  display: flex;
+  justify-content: space-between; 
+  width: 300px; 
+`;
+
+export const TextArea = styled.textarea`
+padding:14px 16px;
+box-sizing:border-box;
+font-size:16px;
+margin:10px 0;
+width:100%;
+border:1px solid #3f3f3f;
+background-color:#272727;
+color:white;
+border-radius:5px;
+outline:none;
+resize:none;
+&:focus{
+outline:1px solid #ffffff5a;
+}
+`
+
+const spin = keyframes`
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+`;
+
+export const Spinner = styled.div`
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+
+&::after {
+  content: '';
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #1160e9ff;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: ${spin} 1s linear infinite;
+}
+`;
+
+
+
 export const Grid = styled.div`
 display:grid;
 grid-template-columns:1fr 1fr 1fr 1fr;
