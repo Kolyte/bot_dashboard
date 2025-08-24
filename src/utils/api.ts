@@ -17,3 +17,12 @@ export const getGuildChannel = (guildId: string) => {return axios.get<DiscordCha
 export const updateGuildChannel = (guildId: string, welcomeChannelId: string) => {
     return axios.post(`http://localhost:3001/api/guilds/${guildId}/welcome-channel`, { welcomeChannelId }, config);
 }
+export const updateWelcomeChannelMessage = (guildId: string, message: string) => {
+   return axios.post(`http://localhost:3001/api/guilds/${guildId}/welcomeMessage`, { message }, config);
+ }
+ export const updateStateForAvatar = (guildId: string, isChecked: boolean) => {
+    return axios.post(`http://localhost:3001/api/guilds/${guildId}/welcomeAvatarState`, { isChecked }, config);
+ }
+ export const updateEmbedColour = (guildId: string, embedColour: string) => {
+    return axios.post(`http://localhost:3001/api/guilds/${guildId}/embedColour`, { embedColour }, config);
+ }

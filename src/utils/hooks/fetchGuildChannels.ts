@@ -8,6 +8,7 @@ export function useFetchGuildChannels(guildId: string) {
     const [welcomeChannelId, setWelcomeChannelId] = useState<string>("");
     const [channels, setChannels] = useState<DiscordChannel[]>([]);
     const [error, setError] = useState<string>();
+    const [isChecked, setIsChecked] = useState(true);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(()=>{
@@ -16,6 +17,7 @@ export function useFetchGuildChannels(guildId: string) {
             setConfig(data);
             console.log("Guild welcomeChannelId:", data.welcomeChannelId);
             setWelcomeChannelId(data.welcomeChannelId);
+            setIsChecked(data.welcomeAvatarState);
             return getGuildChannel(guildId);
         }).then(({data})=>{
             setChannels(data);
@@ -27,5 +29,5 @@ export function useFetchGuildChannels(guildId: string) {
     },[guildId]);
 
     
-    return {config,welcomeChannelId,setWelcomeChannelId, channels, error, loading};
+    return {config,setConfig,isChecked,setIsChecked,welcomeChannelId,setWelcomeChannelId, channels, error, loading};
 }

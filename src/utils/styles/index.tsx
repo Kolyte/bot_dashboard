@@ -28,18 +28,19 @@ padding:8px;
 background-color:#242222;
 border-radius:10px;
 border:0.222px solid #ffffff2f;
-margin:8px;
+margin:2px;
 cursor: pointer;
 transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #1f1f1f; 
-  }
+&:hover {
+background-color: #1f1f1f;
+}
 `;
+
 export const Container = styled.div`
- width: 1200px;
- margin: 0 auto;
- `
+    width: 1200px;
+    margin: 0 auto;
+`;
+
 export const GuildIcon = styled.img`
 border-radius:50%;
 `;
@@ -183,6 +184,7 @@ export const TextArea = styled.textarea`
 padding:14px 16px;
 box-sizing:border-box;
 font-size:16px;
+font-family:'DM Sans';
 margin:10px 0;
 width:100%;
 border:1px solid #3f3f3f;

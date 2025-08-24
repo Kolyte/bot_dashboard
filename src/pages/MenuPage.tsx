@@ -24,52 +24,21 @@ return(
     
   <PageSet>
 
-    {/* <ul>
-         {mockGuilds.map((guild)=>(<li onClick={()=>{
-            updateGuildId(guild.id)
-            navigate("/categories")
-        }
-            }>{guild.name}</li>))}
-    </ul> */}
-    
-    <Container>
-        {/* {loadingGuilds ? (
-            <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-                height: '100vh',
-                width: '100%'
-            }}>
-                <Spinner />
-            </div>
-        ) : ( */}
-            
-            <div>
-                {/* {mockGuilds.map((guild)=>
-                <div onClick={()=> handleClick(guild.id)}>
-                    <GuildMenuItem guild={guild}/>
-                </div>
-        )} */}
-
-        <h2 style={{textAlign:'center',fontSize:20}}>Select a Guild</h2>
+<Container>
+    <div>
+        <h2 style={{ textAlign: 'center', fontSize: '24px', color: '#ffffff' }}>Select a Guild</h2>
         {guilds && guilds.length === 0 && (
             <EmptyStateText>No guilds found</EmptyStateText>
         )}
-        {
-            
-            guilds?.map((guild)=>
-            <div key={guild.id} onClick={()=> handleClick(guild)}>
-                <GuildMenuItem guild={guild}/>
-            </div>
-            )
-        }
-
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {guilds?.map((guild) => (
+                <div key={guild.id} onClick={() => handleClick(guild)}>
+                    <GuildMenuItem guild={guild} />
+                </div>
+            ))}
+        </div>
     </div>
-   
-
-
-        </Container>
+</Container>
        
         <BottomBar>
 

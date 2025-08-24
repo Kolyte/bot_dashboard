@@ -1,7 +1,10 @@
 export type GuildConfig ={
     id:number;
     guildId:string;
+    welcomeMessage?:string;
+    welcomeAvatarState:boolean;
     prefix:string;
+    embedColour?:string;
     welcomeChannelId:string;
 }
 export type DiscordChannel ={

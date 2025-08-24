@@ -9,8 +9,8 @@ export const AppBar = () =>{
     const {guild,updateGuild} = useContext(GuildContext);
     console.log(guild);
     return guild ? (<AppBarStyle>
-        <h1 style ={{fontSize:'20px'}}>{guild.name}</h1>
         <img src={func(guild)} alt={guild.name} width={45} height={45} style={{borderRadius:'20%'}}/>
+        <h1 style ={{fontSize:'20px'}}>{guild.name}</h1>
     </AppBarStyle>
     ):(<Navigate to="/menu"/>);
 };

@@ -48,6 +48,6 @@ export const CategoryPage = () => {
                 </Grid>
             </div>
         </Container>
-        </PageSet>):(<Navigate to="/category"/>)
+        </PageSet>):(<Navigate to="/menu"/>)
 };
 
