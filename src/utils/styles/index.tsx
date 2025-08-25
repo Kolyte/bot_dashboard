@@ -50,11 +50,17 @@ justify-content:space-between;
 align-items:center;
 padding:15px 35px;
 box-sizing:border-box;
-border-bottom:1px solid #c9c9c921;
+// box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+border-bottom:3px solid #c9c9c921;
 `;
 export const Title = styled.p`
 font-size:20px;
 
+`;
+export const MessageContainer = styled.div`
+  display: flex;
+  align-items: center; 
+  padding: 8px; 
 `;
 
 export const InputField = styled.input`

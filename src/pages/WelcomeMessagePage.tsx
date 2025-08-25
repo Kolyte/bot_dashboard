@@ -1,16 +1,20 @@
 import { useContext, useState } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
-import { Button, Container, Flex, PageSet, Select, Spinner, TextArea, Title } from "../utils/styles"
+import { Button, Container, Flex, MessageContainer, PageSet, Select, Spinner, TextArea, Title } from "../utils/styles"
 import { Navigate } from "react-router-dom";
 import { useFetchGuildChannels } from "../utils/hooks/fetchGuildChannels";
 import { updateEmbedColour, updateGuildChannel, updateStateForAvatar, updateWelcomeChannelMessage } from "../utils/api";
 import { useFetchGuildConfig } from "../utils/hooks/fetchGuildConfig";
 import '../styles/checkbox.css';
+import InfoButton from "../components/infoButton";
+import FileUpload from "../components/FileUpload";
 export const WelcomeMessagePage = () =>{
     const {guild} = useContext(GuildContext);
+
+
     const{config,isChecked,setIsChecked,channels,welcomeChannelId,setWelcomeChannelId,loading,error} = useFetchGuildChannels(guild && guild.id || "");
     const {welcomeMessage,embedColour,setEmbedColour,setWelcomeMessage} = useFetchGuildConfig(guild && guild.id || "");
-
+    
  
     const clickHandler = async(e:React.MouseEvent<HTMLButtonElement,MouseEvent>) =>{
         e.preventDefault();
@@ -53,6 +57,7 @@ export const WelcomeMessagePage = () =>{
         <section style={{ marginTop: '40px' }}>
             <div>
                 <label>Current Channel</label>
+              
                 <div>
                     <Select onChange={(input) => { setWelcomeChannelId(input.target.value); }}>
                         {channels?.map((channel) => (
@@ -66,7 +71,10 @@ export const WelcomeMessagePage = () =>{
         </section>
         <section style={{ marginTop: "8px" }}>
             <div>
+                <MessageContainer>
                 <label htmlFor="message">Current Message</label>
+                <InfoButton/>
+                </MessageContainer>
                 <div>
                     <TextArea onChange={(input) => setWelcomeMessage(input.target.value)} value={welcomeMessage} id='message' />
                 </div>
@@ -101,6 +109,9 @@ export const WelcomeMessagePage = () =>{
                     }}
                     onChange={(event) => setEmbedColour(event.target.value)}
                 />
+            </div>
+            <div>
+            <FileUpload guildId={guild.id}/>
             </div>
         </section>
         <Flex justifyContent="flex-end">
