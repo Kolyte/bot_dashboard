@@ -1,6 +1,8 @@
 export type User={
     id:string;
     discordId:string;
+    username?:string;
+    avatar?:string;
 
 }
 export type PartialGuilds={

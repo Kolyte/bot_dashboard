@@ -10,11 +10,14 @@ import { AppBar } from './components/AppBar';
 import { useFetchUser } from './utils/hooks/fetchUser';
 import { Spinner } from './utils/styles';
 import { PartialGuilds } from './utils/types/UserType';
+import { AppBarUser } from './components/AppBarUser';
+import { UserContext } from './utils/contexts/UserContext';
 
 
 function App() {
   const [guild,setGuild] = useState<PartialGuilds>();
   const {user, loading, err} = useFetchUser();
+  console.log("User object at app.tsx",user);
 
 
   const updateGuild = (guild:PartialGuilds)=>setGuild(guild);
@@ -28,8 +31,14 @@ function App() {
   return (
    <GuildContext.Provider value={{guild,updateGuild}}>
    {user?<>
+    <UserContext.Provider value={{user}}>
+      <Routes>
+      <Route path="/menu" element={<AppBarUser/>}/>
+      </Routes>
+    </UserContext.Provider>
     <Routes>
       <Route path="/dashboard/*" element={<AppBar/>}/>
+
     </Routes>
       <Routes>
         <Route path="/menu" element={<MenuPage/>} />

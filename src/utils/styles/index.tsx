@@ -57,6 +57,49 @@ export const Title = styled.p`
 font-size:20px;
 
 `;
+export const StyledWrapper = styled.div`
+  .custum-file-upload {
+    height: 150px; /* Reduced height */
+    width: 250px; /* Reduced width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Reduced gap */
+    cursor: pointer;
+    border: 2px dashed #e8e8e8;
+    background-color: #212121;
+    padding: 2rem 2rem 1rem; /* Added top padding */
+    border-radius: 10px;
+    box-shadow: 0px 48px 35px -48px #e8e8e8;
+  }
+
+  .custum-file-upload .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custum-file-upload .icon svg {
+    height: 60px;
+    fill: #e8e8e8;
+  }
+
+  .custum-file-upload .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custum-file-upload .text span {
+    font-weight: 400;
+    color: #e8e8e8;
+  }
+
+  .custum-file-upload input {
+    display: none;
+  }
+`;
 export const MessageContainer = styled.div`
   display: flex;
   align-items: center; 

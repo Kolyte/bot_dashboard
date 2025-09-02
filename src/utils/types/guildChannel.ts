@@ -1,6 +1,7 @@
 export type GuildConfig ={
     id:number;
     guildId:string;
+    imageUrl?:string;
     welcomeMessage?:string;
     welcomeAvatarState:boolean;
     prefix:string;

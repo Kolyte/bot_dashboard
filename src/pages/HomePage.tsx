@@ -8,7 +8,9 @@ const redirect = ()=>{
   window.location.href = 'http://localhost:3001/api/auth/login';
 }
 return(<HomePageStyle>
-<div></div>
+<div>
+  
+</div>
 <div>
 <MainButton onClick={redirect}>
       <div style={{ marginRight: '10px' }}>

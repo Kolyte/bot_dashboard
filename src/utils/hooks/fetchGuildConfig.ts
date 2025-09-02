@@ -9,6 +9,7 @@ export function useFetchGuildConfig(guildId: string) {
     const [prefix, setPrefix] = useState<string>("");
     const [loading, setLoading] = useState<boolean>(false);
     const [embedColour, setEmbedColour] = useState<string>();
+    const [ImageUrl,setImageUrl] = useState<string>("");
 
     useEffect(() => {
         setLoading(true);
@@ -16,6 +17,7 @@ export function useFetchGuildConfig(guildId: string) {
             .then(({data}) => {
                 setConfig(data);
                 setPrefix(data.prefix);
+                setImageUrl(data.imageUrl||"");
                 setWelcomeMessage(data.welcomeMessage||"");
                 setEmbedColour(data.embedColour || "#4a90e2");
             })
@@ -29,5 +31,5 @@ export function useFetchGuildConfig(guildId: string) {
 
     
 
-    return { prefix,embedColour,setEmbedColour,welcomeMessage,setWelcomeMessage, setPrefix, config, error, loading };
+    return { prefix,embedColour,setEmbedColour,welcomeMessage,setWelcomeMessage, setPrefix, config, error, loading,ImageUrl,setImageUrl };
 }
