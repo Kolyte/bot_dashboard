@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import { mockGuilds } from "../utils/_mocks_/guild";
 import { useContext } from "react";
 import { GuildContext } from "../utils/contexts/GuildContext";
 import { GuildMenuItem } from "../components/GuildMenuItem";
@@ -7,54 +6,45 @@ import { BottomBar, CenterItems, Container, EmptyStateText, PageSet, SocialLink,
 import { useFetchGuilds } from "../utils/hooks/fetchGuilds";
 import { PartialGuilds } from "../utils/types/UserType";
 
-export const MenuPage = ()=>{
+export const MenuPage = () => {
     const navigate = useNavigate();
-    const {updateGuild} = useContext(GuildContext)
-    const handleClick = (guild:PartialGuilds) =>{
-        updateGuild(guild)
-        navigate("/dashboard/categories")
-    }
-    
-    const {guilds, error,loadingGuilds} = useFetchGuilds();
-    if(loadingGuilds){
-        return <Spinner/>
-    }
-return(
+    const { updateGuild } = useContext(GuildContext);
 
-    
-  <PageSet>
+    const handleClick = (guild: PartialGuilds) => {
+        updateGuild(guild);
+        navigate("/dashboard/categories");
+    };
 
-<Container>
-    <div>
-        <h2 style={{ textAlign: 'center', fontSize: '24px', color: '#ffffff' }}>Select a Guild</h2>
-        {guilds && guilds.length === 0 && (
-            <EmptyStateText>No guilds found</EmptyStateText>
-        )}
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
-            {guilds?.map((guild) => (
-                <div key={guild.id} onClick={() => handleClick(guild)}>
-                    <GuildMenuItem guild={guild} />
+    const { guilds, error, loadingGuilds } = useFetchGuilds();
+
+    if (loadingGuilds) {
+        return <Spinner />;
+    }
+
+    return (
+        <PageSet>
+            <Container>
+                <div>
+                    <h2 style={{ textAlign: 'center', fontSize: '24px', color: '#ffffff' }}>Select a Guild</h2>
+                    {guilds && guilds.length === 0 && (
+                        <EmptyStateText>No guilds found</EmptyStateText>
+                    )}
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'flex-start' }}>
+                        {guilds?.map((guild) => (
+                            <div key={guild.id} onClick={() => handleClick(guild)}>
+                                <GuildMenuItem guild={guild} />
+                            </div>
+                        ))}
+                    </div>
                 </div>
-            ))}
-        </div>
-    </div>
-</Container>
-       
-        <BottomBar>
-
-        <CenterItems>
-        <SocialLink href="http://kolyte.net">LinkedIn</SocialLink>
-        <SocialLink href="http://kolyte.net">Instagram</SocialLink>
-        <SocialLink href="http://kolyte.net">Discord</SocialLink>
-       
-         
-        </CenterItems>
-        </BottomBar>
-    </PageSet>
-
-);
+            </Container>
+            <BottomBar>
+                <CenterItems>
+                    <SocialLink href="http://kolyte.net">LinkedIn</SocialLink>
+                    <SocialLink href="http://kolyte.net">Instagram</SocialLink>
+                    <SocialLink href="http://kolyte.net">Discord</SocialLink>
+                </CenterItems>
+            </BottomBar>
+        </PageSet>
+    );
 };
-
-
-
-

@@ -67,11 +67,12 @@ export const WelcomeMessagePage = () =>{
     const clickHandler = async(e:React.MouseEvent<HTMLButtonElement,MouseEvent>) =>{
         e.preventDefault();
         try{
-                handleUpload();
-                updateGuildChannel(guild!.id, welcomeChannelId);
-                updateWelcomeChannelMessage(guild!.id, welcomeMessage);
-                updateStateForAvatar(guild!.id, isChecked);
-                updateEmbedColour(guild!.id, embedColour!);
+
+                await handleUpload();
+                await updateGuildChannel(guild!.id, welcomeChannelId);
+                await updateWelcomeChannelMessage(guild!.id, welcomeMessage);
+                await updateStateForAvatar(guild!.id, isChecked);
+                await updateEmbedColour(guild!.id, embedColour!);
                 console.log(config);
             
         }catch{
@@ -84,8 +85,10 @@ export const WelcomeMessagePage = () =>{
     
     return guild?(
         
-<PageSet>
-    <Container style={{ padding: '20px', backgroundColor: "#2d2d2d", borderRadius: '10px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)', position: 'relative' }}>
+<PageSet style={{ overflow: 'hidden', height: 'auto', maxWidth: '100%' }}>
+
+    <Container style={{ padding: '20px', backgroundColor: "#2d2d2d", borderRadius: '10px', boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)', position: 'relative', overflow: 'hidden', // Change to hidden to prevent overflow
+    maxWidth: '100%' }}>
         <div
             style={{
                 width: '4px',
@@ -96,6 +99,7 @@ export const WelcomeMessagePage = () =>{
                 position: 'absolute',
                 left: '0', 
                 top: '0', 
+                overflow:'auto',
             }}
         />
         
@@ -107,7 +111,7 @@ export const WelcomeMessagePage = () =>{
                 <label>Current Channel</label>
               
                 <div>
-                    <Select onChange={(input) => { setWelcomeChannelId(input.target.value); }}>
+                    <Select onSelect={(value)=>console.log(value)} onChange={(input) => { setWelcomeChannelId(input.target.value); console.log(input.target.value)}}>
                         {channels?.map((channel) => (
                             <option key={channel.id} selected={channel?.id === config?.welcomeChannelId} value={channel.id}>
                                 # {channel.name}

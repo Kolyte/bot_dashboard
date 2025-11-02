@@ -21,20 +21,34 @@ export const HomePageStyle = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+
+
+
 export const GuildMenuPageStyle = styled.div`
-display:flex;
-justify-content:space-between;
-padding:8px;
-background-color:#242222;
-border-radius:10px;
-border:0.222px solid #ffffff2f;
-margin:2px;
-cursor: pointer;
-transition: background-color 0.3s;
-&:hover {
-background-color: #1f1f1f;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    backdrop-filter: blur(10px);
+    width: 200px;
+    height: 150px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+        background: rgba(255, 255, 255, 0.1);
+    }
 `;
+
+
+
 
 export const Container = styled.div`
     width: 1200px;
